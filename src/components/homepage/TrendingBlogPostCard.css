@@ -1,0 +1,126 @@
+/* src/components/homepage/TrendingBlogPostCard.css */
+
+.blog-post-card {
+  padding: 0; /* Remove padding to have sections span full width */
+}
+
+.blog-post-header {
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+}
+
+.blog-post-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem 0;
+  color: #333;
+}
+.blog-post-title:hover {
+  color: #0056b3;
+}
+
+.blog-post-tags .tag {
+  background-color: #e9e9ff;
+  color: #4a4de6;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+  font-weight: 500;
+}
+
+.blog-content-snippet {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  color: #555;
+  line-height: 1.6;
+  border-bottom: 1px solid #e7e7e7;
+}
+.blog-content-snippet p {
+  margin: 0;
+  /* Truncate to 4 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+
+.blog-post-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: #f8f9fa;
+}
+
+.blog-author-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.blog-author-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.author-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-author-name {
+  font-weight: 600;
+}
+
+.blog-post-timestamp {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.blog-post-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.vote-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 4px;
+  border-radius: 20px;
+}
+.vote-controls .vote-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #666;
+  padding: 4px;
+  border-radius: 50%;
+}
+.vote-controls .vote-button:hover {
+  background-color: #f0f0f0;
+}
+.vote-controls .vote-button.up.active { color: #ff4d00; }
+.vote-controls .vote-button.down.active { color: #007bff; }
+.vote-controls .vote-count {
+  font-weight: 600;
+  font-size: 1rem;
+  min-width: 20px;
+  text-align: center;
+}
+
+.read-more-link {
+  font-weight: 600;
+  color: #007bff;
+  text-decoration: none;
+}
+.read-more-link:hover {
+  color: #0056b3;
+} 

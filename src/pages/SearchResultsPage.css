@@ -1,0 +1,51 @@
+/* src/pages/SearchResultsPage.css */
+
+.search-results-page {
+  padding: 1.5rem 2rem; /* Match main content padding */
+  max-width: 1200px;
+  margin: 1rem auto;
+}
+
+.search-results-page h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); /* Match card min-width */
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.search-results-page .error-message {
+  color: #dc2626; /* Red for errors */
+  background-color: #fee2e2;
+  border: 1px solid #fecaca;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+}
+
+.search-results-page p {
+  text-align: center;
+  color: #666;
+  margin-top: 1rem;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 640px) {
+  .search-results-page {
+    padding: 1rem;
+  }
+
+  .results-grid {
+    grid-template-columns: 1fr; /* One card per row on mobile */
+    gap: 1rem;
+  }
+  
+  .search-results-page h1 {
+    font-size: 1.5rem;
+  }
+}

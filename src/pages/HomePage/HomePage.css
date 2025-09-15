@@ -1,0 +1,29 @@
+/* src/pages/HomePage/HomePage.css */
+
+.homepage-container {
+  max-width: 900px; /* Or another suitable max-width */
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+}
+
+.homepage-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem; /* Space between feed items */
+}
+
+.homepage-feed > p {
+  text-align: center;
+  color: #666;
+  font-size: 1.1rem;
+  padding: 2rem;
+}
+
+.error-message {
+  color: #dc2626;
+  background-color: #fee2e2;
+  border: 1px solid #fecaca;
+  padding: 1rem;
+  border-radius: 6px;
+  text-align: center;
+} 

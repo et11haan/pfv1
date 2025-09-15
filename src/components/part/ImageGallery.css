@@ -1,0 +1,407 @@
+.image-gallery {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.gallery-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.gallery-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.upload-image-button {
+  padding: 0.5rem 1rem;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.upload-image-button:hover {
+  background-color: #003d82;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  width: 100%;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s;
+  background-color: #f5f5f5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%; /* 4:3 aspect ratio */
+  overflow: hidden;
+}
+
+.gallery-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-image {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.gallery-item:hover .image-overlay {
+  opacity: 1;
+}
+
+.view-text {
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+}
+
+.image-controls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: white;
+}
+
+/* Combined container for vote and report */
+.image-actions-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Vertical Vote Container (like comments) */
+.vote-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  min-width: 24px;
+}
+
+.vote-button {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 0;
+  font-size: 16px;
+  line-height: 1;
+  height: 18px;
+  width: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vote-button:hover {
+  color: #333;
+}
+
+.vote-count {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  color: #333;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.report-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #878a8c;
+  transition: color 0.2s;
+  height: 18px;
+  width: 18px;
+}
+
+.report-button:hover {
+  color: #e74c3c;
+}
+
+.report-button svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Empty State Styles */
+.no-images {
+  width: 100%;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: opacity 0.2s;
+  border: 1px solid #ddd;
+  position: relative;
+}
+
+.no-images:hover {
+  opacity: 0.9;
+}
+
+/* Make placeholder styles more explicit */
+.no-images img.placeholder-image-file {
+  display: block; /* Ensure it's treated as a block */
+  width: 100%; /* Take full width of container */
+  max-height: 350px; /* Limit height */
+  min-height: 100px; /* Ensure it has some minimum height */
+  object-fit: contain; /* Scale down to fit, preserving aspect ratio */
+  background-color: #eee; /* Add a light background for visibility */
+}
+
+.overlay-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+.overlay-text p {
+  margin: 0;
+  font-weight: bold;
+}
+
+/* Original empty state styles (keeping for reference) */
+.placeholder-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.placeholder-image svg {
+  color: #999;
+  margin-bottom: 1rem;
+}
+
+.placeholder-image p {
+  margin: 0.25rem 0;
+  color: #555;
+}
+
+.hint-text {
+  font-size: 0.8rem;
+  color: #777;
+  margin-top: 0.5rem;
+}
+
+/* --- NEW: Dynamic Grid Layout --- */
+.gallery-grid-dynamic {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.main-image-wrapper {
+  flex: 2;
+  aspect-ratio: 16 / 9;
+  background-color: #f0f0f0;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.main-image-wrapper .gallery-item {
+  height: 100%;
+  width: 100%;
+}
+
+.thumbnail-stack-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.gallery-item.thumb-item {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  background-color: #f0f0f0;
+}
+
+.gallery-item .image-container,
+.gallery-item .gallery-image {
+  height: 100%;
+  width: 100%;
+}
+
+.gallery-image {
+  display: block;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  background-color: #f9f9f9;
+}
+
+.gallery-item:hover .gallery-image {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-size: 0.9em;
+}
+
+.gallery-item:hover .image-overlay {
+  opacity: 1;
+}
+
+/* --- NEW: Single Image Layout --- */
+.gallery-single {
+  width: 100%;
+  max-height: 400px;
+  overflow: hidden;
+}
+
+.gallery-single .gallery-item {
+  height: 100%;
+  width: 100%;
+  max-height: 400px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+}
+
+.gallery-single .image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-single .gallery-image {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 400px;
+}
+
+/* --- NEW: More Thumbnails Overlay --- */
+.more-thumbs-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  z-index: 5;
+}
+
+/* Placeholder Styles */
+.no-images {
+  position: relative;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.placeholder-image-file {
+  max-height: 60%;
+  max-width: 80%;
+  object-fit: contain;
+  opacity: 0.5;
+  margin-bottom: 10px;
+}
+
+.no-images .overlay-text {
+  color: #666;
+  font-weight: 500;
+}
+
+.no-images .overlay-text p {
+    margin-bottom: 5px;
+    font-size: 1.1em;
+}
+.no-images .overlay-text span {
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+.no-images:hover {
+  border-color: #aaa;
+  background-color: #f0f0f0;
+}
+
+.no-images:hover .placeholder-image-file {
+    opacity: 0.7;
+} 

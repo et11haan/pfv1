@@ -1,0 +1,229 @@
+/* Part Header Styles */
+.part-header {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.tags-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.tags-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #333;
+  text-decoration: none;
+}
+
+.tag a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.k-series-tag {
+  background-color: rgba(0, 102, 204, 0.1);
+  color: #0066cc;
+}
+
+.k-series-tag:hover {
+  background-color: rgba(0, 102, 204, 0.2);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.action-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background-color: transparent;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.action-button:hover {
+  background-color: #f0f0f0;
+}
+
+.part-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #111;
+}
+
+.part-info {
+  font-size: 14px;
+  color: #555;
+}
+
+.part-info a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.part-info a:hover {
+  text-decoration: underline;
+}
+
+/* Modal Styles */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.part-numbers-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.part-number-item {
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.part-number-item:last-child {
+  border-bottom: none;
+}
+
+.part-number-item a {
+  color: #0066cc;
+  text-decoration: none;
+  margin-left: 8px;
+}
+
+.part-number-item a:hover {
+  text-decoration: underline;
+} 
+
+.part-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.part-title-section {
+  flex-grow: 1;
+}
+
+.part-title {
+  margin: 0;
+  font-size: 2em;
+  font-weight: 600;
+  color: #333;
+}
+
+.part-tags {
+  margin-top: 8px;
+}
+
+.part-tag {
+  display: inline-block;
+  background-color: rgba(10, 207, 131, 0.1);
+  color: #0acf83;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  margin-right: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.part-tag:hover {
+  background-color: rgba(10, 207, 131, 0.2);
+}
+
+.part-tag, .part-tag:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+.part-actions {
+  flex-shrink: 0;
+}
+
+.add-listing-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.add-listing-btn:hover {
+  background-color: #0056b3;
+} 

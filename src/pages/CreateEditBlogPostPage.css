@@ -1,0 +1,150 @@
+/* src/pages/CreateEditBlogPostPage.css */
+
+.create-edit-page-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.create-edit-page-container h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.form-group textarea {
+  min-height: 250px;
+  font-family: monospace;
+  resize: vertical;
+}
+
+/* --- Tag Specific Styles --- */
+.tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 0.5rem 0;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.8rem;
+  border-radius: 16px;
+  background-color: #0acf83; /* Green background */
+  color: white; /* White text */
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  cursor: default;
+  gap: 0.5rem;
+}
+
+.tag .remove-tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: 4px;
+  color: white;
+  opacity: 0.7;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.tag .remove-tag:hover {
+  opacity: 1;
+}
+
+.tag-input {
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.submit-button {
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+.submit-button:hover {
+  background-color: #0052a3;
+}
+
+.submit-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #dc2626;
+  margin-top: 1rem;
+}
+
+/* Styles for CreateEditBlogPostPage */
+
+.markdown-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  margin-bottom: 0; /* Remove margin-bottom to connect with textarea */
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+}
+
+.markdown-button {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  color: #495057;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background-color 0.2s;
+  font-weight: bold;
+}
+
+.markdown-button:hover {
+  background-color: #dee2e6;
+}
+
+/* Adjustments for the content textarea to match the toolbar */
+.content-textarea {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+} 

@@ -1,0 +1,30 @@
+@layer components {
+  .product-header {
+    @apply mb-8;
+  }
+
+  .tags-container {
+    @apply flex flex-wrap gap-2 mb-4;
+  }
+
+  .tag {
+    @apply px-3 py-1 rounded-full bg-tag-bg text-tag-text text-sm font-medium hover:bg-gray-200 transition-colors cursor-pointer;
+  }
+
+  .action-buttons {
+    @apply flex gap-4 mt-4;
+  }
+
+  .action-button {
+    @apply flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 hover:border-gray-300 transition-colors text-gray-700;
+  }
+
+  .action-button svg {
+    @apply w-5 h-5;
+  }
+
+  .k-series-tag {
+    background-color: #F4BE50 !important;
+    color: #F4BE50;
+  }
+} 

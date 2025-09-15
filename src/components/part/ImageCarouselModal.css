@@ -1,0 +1,253 @@
+/* ImageCarouselModal specific styles */
+
+.carousel-modal .modal-body {
+  padding-top: 5px; /* Reduce padding if top actions are added */
+}
+
+/* Top Actions Bar (only report button now) */
+.carousel-top-actions {
+  display: flex;
+  justify-content: flex-end; /* Align report button to the right */
+  align-items: center;
+  padding: 8px 16px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Remove styles for vote container within top actions */
+/* .carousel-top-actions .vote-container { ... } */
+/* .carousel-top-actions .vote-button { ... } */
+/* .carousel-top-actions .vote-count { ... } */
+/* Remove active styles tied to top actions */
+/* .carousel-top-actions .vote-button.active-up { ... } */
+/* .carousel-top-actions .vote-button.active-down { ... } */
+
+/* Keep report button styles */
+.carousel-top-actions .report-button {
+  background: none;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  color: #666; 
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.9em;
+  transition: color 0.2s ease;
+}
+.carousel-top-actions .report-button:hover:not(:disabled) {
+   color: #EF4444; 
+}
+.carousel-top-actions .report-button.active-report {
+   color: #EF4444; 
+}
+.carousel-top-actions .report-button.active-report:hover:not(:disabled) {
+   color: #DC2626; 
+}
+.carousel-top-actions .report-button:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+.carousel-top-actions .report-button-text {
+ /* display: none; */ 
+}
+
+/* --- NEW: Main Carousel Area Layout --- */
+.carousel-main-area {
+  display: flex;
+  gap: 16px; 
+  align-items: flex-start; /* Changed from center to flex-start */
+  margin-bottom: 15px;
+}
+
+/* --- NEW: Side Vote Container --- */
+.carousel-side-votes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; /* Increased gap */
+  padding: 8px 8px 0 8px; /* Added top padding */
+  align-self: flex-start; /* Ensure it aligns to the top */
+}
+
+.carousel-side-votes .vote-button {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: #666; /* Default color */
+  transition: color 0.2s ease;
+}
+.carousel-side-votes .vote-button:hover:not(:disabled) {
+  color: #333;
+}
+.carousel-side-votes .vote-button:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Active styles for side votes */
+.carousel-side-votes .vote-button.active-up {
+  color: #10B981; /* Tailwind green-500 */
+}
+.carousel-side-votes .vote-button.active-up:hover:not(:disabled) {
+  color: #059669; /* Tailwind green-600 */
+}
+
+.carousel-side-votes .vote-button.active-down {
+  color: #EF4444; /* Tailwind red-500 */
+}
+.carousel-side-votes .vote-button.active-down:hover:not(:disabled) {
+  color: #DC2626; /* Tailwind red-600 */
+}
+
+.carousel-side-votes .vote-button svg {
+    width: 28px; /* Increased size */
+    height: 28px; /* Increased size */
+}
+
+.carousel-side-votes .vote-count {
+  font-weight: 500;
+  font-size: 1.2em; /* Increased size */
+  min-width: 30px;  /* Adjusted min-width */
+  text-align: center;
+  color: #333;
+}
+
+/* Existing Carousel Container (needs adjustments) */
+.carousel-container {
+  position: relative;
+  flex-grow: 1; /* Allow image container to take remaining space */
+  display: flex; /* Keep using flex for centering image */
+  align-items: center;
+  justify-content: center; 
+  background-color: #f9f9f9; 
+  border-radius: 4px;
+  overflow: hidden; 
+}
+
+/* Image container within carousel */
+.carousel-image-container {
+  /* Removed flex-grow as parent .carousel-container handles it */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px; 
+  max-height: 70vh; 
+  width: 100%; /* Ensure it fills the .carousel-container */
+}
+
+.carousel-image {
+  max-width: 100%;
+  max-height: 70vh; 
+  height: auto; 
+  object-fit: contain; 
+  display: block; 
+}
+
+.carousel-placeholder {
+    max-width: 80%;
+    max-height: 300px;
+    opacity: 0.6;
+}
+
+/* Nav buttons stay the same */
+.carousel-nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.carousel-nav-button:hover:not(:disabled) {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.carousel-nav-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.carousel-nav-button.prev {
+  left: 10px;
+}
+
+.carousel-nav-button.next {
+  right: 10px;
+}
+
+.carousel-info {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 0.9em;
+  color: #555;
+}
+.carousel-info .carousel-counter {
+  margin-right: 15px;
+}
+
+/* Remove old actions section if layout moved */
+/* .carousel-actions { ... } */
+
+
+.carousel-thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+  padding: 10px 0;
+  overflow-x: auto; /* Allow scrolling if too many thumbnails */
+  border-top: 1px solid #eee;
+}
+
+.carousel-thumbnail {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  overflow: hidden;
+  flex-shrink: 0; /* Prevent thumbnails from shrinking */
+  transition: border-color 0.2s ease;
+}
+
+.carousel-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-thumbnail.active {
+  border-color: #007bff; /* Or your theme's primary color */
+}
+
+.no-images-message {
+  text-align: center;
+  padding: 40px 20px;
+  color: #777;
+}
+
+.no-images-message img.carousel-placeholder {
+  max-width: 150px; /* Smaller placeholder */
+  margin-bottom: 15px;
+}
+
+.error-message {
+  color: #dc3545; /* Bootstrap danger color */
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px; /* Space below error */
+  font-size: 0.9em;
+} 

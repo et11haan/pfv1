@@ -1,0 +1,52 @@
+.pricing-section-container {
+  padding: 20px;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+}
+
+.price-box {
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.price-box.lowest-ask {
+  background-color: #28a745;
+}
+
+.price-box.highest-bid {
+  background-color: #fd7e14;
+}
+
+.price-label {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.price-value {
+  font-size: 2em;
+  font-weight: 700;
+}
+
+.guarantee-box, .support-box {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e9ecef;
+}
+
+.guarantee-box h4, .support-box h4 {
+  font-size: 1.1em;
+  margin-bottom: 8px;
+  color: #343a40;
+}
+
+.guarantee-box p, .support-box p {
+  font-size: 0.9em;
+  color: #6c757d;
+  line-height: 1.5;
+} 

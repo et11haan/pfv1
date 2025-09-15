@@ -1,0 +1,414 @@
+.upload-part-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f9f9f9; /* Light background for the container */
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.upload-part-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 1.5rem;
+}
+
+.upload-step {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.upload-step h2 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-group label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #555;
+}
+
+.input-field,
+.textarea-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1rem;
+  background-color: #fdfdfd;
+  transition: border-color 0.2s ease;
+}
+
+.input-field:focus,
+.textarea-field:focus {
+  outline: none;
+  border-color: #007bff; /* Highlight focus */
+}
+
+.textarea-field {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.subtext-info {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.875rem;
+  color: #666;
+  line-height: 1.5;
+  margin-top: 0.5rem;
+}
+
+.subtext-info p {
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.subtext-info .checkmark,
+.subtext-info .xmark {
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.subtext-info .checkmark {
+  color: #0ACF83; /* Green */
+}
+
+.subtext-info .xmark {
+  color: #FF4D00; /* Orange/Red */
+}
+
+.subtext-info strong {
+  font-weight: 500;
+  color: #333;
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.button.back {
+  background-color: #f0f0f0;
+  border: 1px solid #d0d0d0;
+  color: #333;
+}
+
+.button.back:hover {
+  background-color: #e0e0e0;
+}
+
+.button.next {
+  background-color: #0ACF83; /* Use Green */
+  color: white;
+  border: 1px solid #0ACF83; /* Use Green */
+}
+
+.button.next:hover {
+  background-color: #08a568; /* Use Darker Green */
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.button.submit {
+  background-color: #0ACF83; /* Green */
+  color: white;
+}
+
+.button.submit:hover {
+  background-color: #08a568;
+}
+
+.wiki-notice {
+  background-color: #eef7ff; /* Light blue background */
+  border: 1px solid #bddcff;
+  border-radius: 4px;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+.wiki-notice p {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.875rem;
+  color: #00529B; /* Dark blue text */
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Shake animation */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Specific styles for tags input */
+.tags-input-container {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  background-color: #fdfdfd;
+}
+
+.tag-item {
+  background-color: #e0e0e0;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.remove-tag-button {
+  background: none;
+  border: none;
+  color: #555;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0;
+  line-height: 1;
+}
+
+.tags-input {
+  border: none;
+  flex-grow: 1;
+  padding: 0.25rem;
+  font-size: 1rem;
+  outline: none;
+  background-color: transparent;
+}
+
+/* Specific styles for part numbers */
+.part-number-entry {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.part-number-entry:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.remove-part-number-button {
+  background-color: #ff4d00;
+  color: white;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.add-part-number-button {
+  background-color: #eee;
+  color: #333;
+  padding: 0.5rem 1rem;
+  border: 1px dashed #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* Styles for Markdown Editor */
+.markdown-editor-container .rdw-editor-wrapper {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  min-height: 250px;
+}
+
+.markdown-editor-container .rdw-editor-toolbar {
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #ccc;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  padding: 0.5rem;
+}
+
+.markdown-editor-container .rdw-editor-main {
+  padding: 1rem;
+  background-color: #fdfdfd;
+  min-height: 200px;
+}
+
+/* Style for the new Markdown buttons */
+.button.markdown-button {
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: normal;
+}
+
+.button.markdown-button:hover {
+  background-color: #e0e0e0;
+  border-color: #bbb;
+}
+
+/* Confirmation Step Styles */
+.confirmation-details dt {
+  font-weight: 600;
+  color: #333;
+  margin-top: 1rem;
+}
+
+.confirmation-details dd {
+  margin-left: 0;
+  color: #555;
+  white-space: pre-wrap; /* Preserve whitespace in description */
+}
+
+.confirmation-details ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+
+.confirmation-details .part-number-item {
+  margin-bottom: 0.5rem;
+}
+
+.confirmation-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Error Message Styles */
+.error-message {
+  color: #d32f2f;
+  background-color: #ffebee;
+  border: 1px solid #ffcdd2;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+.error-actions {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #ffcdd2;
+}
+
+.view-existing-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #fff;
+  color: #d32f2f;
+  border: 1px solid #d32f2f;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.view-existing-link:hover {
+  background-color: #d32f2f;
+  color: #fff;
+}
+
+/* Style for the "Add Another Part Number" button */
+.button-secondary.add-pn {
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+  background-color: #e7e7e7;
+  color: #333;
+  border: 1px solid #c7c7c7;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.button-secondary.add-pn:hover {
+  background-color: #d7d7d7;
+}
+
+/* Styles for Markdown Toolbar Buttons */
+.markdown-toolbar {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  background-color: #f8f8f8;
+  border: 1px solid #e0e0e0;
+  border-bottom: none;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.markdown-tool-button {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.markdown-tool-button:hover {
+  background-color: #eee;
+  border-color: #bbb;
+}
+
+/* Ensure textarea attaches nicely to toolbar */
+.markdown-textarea {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  margin-top: 0 !important;
+} 
