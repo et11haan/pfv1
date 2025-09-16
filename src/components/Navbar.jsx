@@ -17,13 +17,11 @@ const Navbar = () => {
   console.log('Navbar loadingConversations:', loadingConversations);
 
   // Function to initiate Google OAuth flow
-  const handleLogin = () => {
-    // Capture the current relative path and search parameters
-    const currentPath = window.location.pathname + window.location.search;
-    // Base64 encode the path to safely pass it as state
-    const state = btoa(currentPath);
-    // Redirects the user to the backend endpoint with the state parameter
-    window.location.href = `http://localhost:3001/api/auth/google?state=${encodeURIComponent(state)}`; 
+  const handleGoogleLogin = () => {
+    // Encode the current path to be used as 'state' in the OAuth flow
+    const state = btoa(location.pathname + location.search);
+    // Redirect to the backend Google OAuth endpoint
+    window.location.href = `${import.meta.env.VITE_API_URL}/api/auth/google?state=${encodeURIComponent(state)}`;
   };
 
   const handleLogoutClick = () => {
@@ -130,8 +128,8 @@ const Navbar = () => {
           ) : (
             // User is not logged in
             <>
-              <button className="auth-button login" onClick={handleLogin}>Login</button>
-              <button className="auth-button signup" onClick={handleLogin}>Sign Up</button>
+              <button className="auth-button login" onClick={handleGoogleLogin}>Login</button>
+              <button className="auth-button signup" onClick={handleGoogleLogin}>Sign Up</button>
             </>
           )}
         </div>

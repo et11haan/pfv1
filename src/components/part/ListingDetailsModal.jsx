@@ -164,7 +164,7 @@ const ListingDetailsModalInner = ({ listing, onClose }) => {
     const fullMessage = `${header}\n\n${messageInput}`;
 
     try {
-      const response = await fetch('http://localhost:3001/api/messages', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/messages`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

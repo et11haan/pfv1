@@ -65,7 +65,7 @@ export const AuthProvider = ({ children }) => {
       if (token) {
         console.log('[AuthContext] Verifying token:', token);
         try {
-          const response = await axios.get('http://localhost:3001/api/auth/status', {
+          const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/auth/status`, {
             headers: { Authorization: `Bearer ${token}` }
           });
           console.log('[AuthContext] Token verification response (FULL DATA):', response.data);
@@ -114,7 +114,7 @@ export const AuthProvider = ({ children }) => {
     setLoadingConversations(true);
     setConversationsError(null);
     try {
-      const response = await axios.get('http://localhost:3001/api/messages/conversations', {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/messages/conversations`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const fetchedConversations = response.data;

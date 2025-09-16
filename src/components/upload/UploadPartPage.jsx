@@ -55,7 +55,7 @@ const UploadPartPage = () => {
 
     try {
       const token = localStorage.getItem('authToken');
-      const response = await fetch('http://localhost:3001/api/parts', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/parts`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', ...(token ? { Authorization: `Bearer ${token}` } : {}) },
         body: JSON.stringify(submissionData),

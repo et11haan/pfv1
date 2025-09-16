@@ -60,7 +60,7 @@ const UserProfilePage = () => {
         ...pageParams // Allow overriding specific page numbers
       }).toString();
 
-      const response = await fetch(`http://localhost:3001/api/users/${userId}/activity?${queryParams}`);
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/users/${userId}/activity?${queryParams}`);
       if (!response.ok) {
         const errData = await response.json();
         throw new Error(errData.error || `Error fetching user activity: ${response.statusText}`);

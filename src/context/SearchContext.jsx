@@ -59,7 +59,7 @@ export const SearchProvider = ({ children }) => {
         page: page.toString(),
         limit: requestedLimit.toString(),
       });
-      const apiUrl = `http://localhost:3001/api/search?${params.toString()}`;
+      const apiUrl = `${import.meta.env.VITE_API_URL}/api/search?${params.toString()}`;
       console.log(`[SearchContext] Fetching from API: ${apiUrl}`);
 
       const response = await fetch(apiUrl);

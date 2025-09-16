@@ -4,6 +4,8 @@ import axios from 'axios';
 
 const BlogContext = createContext();
 
+const API_URL = `${import.meta.env.VITE_API_URL}/api`;
+
 export const useBlog = () => {
   const context = useContext(BlogContext);
   if (!context) {
@@ -24,8 +26,6 @@ export const BlogProvider = ({ children }) => {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
-  const API_URL = 'http://localhost:3001/api';
 
   const getHeaders = useCallback(() => {
     return {

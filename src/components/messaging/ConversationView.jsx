@@ -31,7 +31,7 @@ const ConversationView = ({ partnerId, currentUser, onMessageSent, conversations
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`http://localhost:3001/api/messages/conversation/${partnerId}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/messages/conversation/${partnerId}`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
@@ -59,7 +59,7 @@ const ConversationView = ({ partnerId, currentUser, onMessageSent, conversations
     if (!newMessage.trim() || !partnerId || !token) return;
 
     try {
-      const response = await fetch('http://localhost:3001/api/messages', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/messages`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
