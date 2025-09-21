@@ -33,4 +33,15 @@
   .content-and-price {
     flex-direction: column;
   }
+}
+
+/* Stronger mobile override to guarantee stacking */
+@media (max-width: 900px) {
+  .main-content .content-and-price {
+    display: block !important;
+  }
+  .price-section-wrapper {
+    width: 100% !important;
+    margin-top: 1rem;
+  }
 } 

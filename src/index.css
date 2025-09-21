@@ -1465,18 +1465,12 @@ body {
 
 /* Add these styles */
 .content-and-price {
-  display: grid;
-  grid-template-columns: 1fr 350px;
   gap: 2rem;
   margin-bottom: 2rem;
 }
 
 /* Add/update media query for mobile devices */
 @media (max-width: 768px) {
-  .content-and-price {
-    grid-template-columns: 1fr; /* Stack vertically on mobile */
-    gap: 1rem;
-  }
 
   .main-content {
     padding: 0 1rem;
