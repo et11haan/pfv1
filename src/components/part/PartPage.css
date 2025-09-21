@@ -27,4 +27,10 @@
   cursor: pointer;
   font-size: 1rem;
   font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .content-and-price {
+    flex-direction: column;
+  }
 } 

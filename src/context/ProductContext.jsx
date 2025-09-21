@@ -103,7 +103,7 @@ export const ProductProvider = ({ children }) => {
     setImageVotes(getImageVotesFromStorage());
     setIsLoadingComments(false);
 
-    const apiUrl = `${import.meta.env.VITE_API_URL}/api/products/${productIdOrSlug}`;
+    const apiUrl = `/api/products/${productIdOrSlug}`;
     console.log(`[Context] Fetching initial product data from: ${apiUrl}`);
 
     try {
@@ -126,7 +126,7 @@ export const ProductProvider = ({ children }) => {
 
 
       if (data.product?._id) {
-        const imageApiUrl = `${import.meta.env.VITE_API_URL}/api/parts/${data.product._id}/images`;
+        const imageApiUrl = `/api/parts/${data.product._id}/images`;
         console.log(`[Context] Fetching all images from: ${imageApiUrl}`);
         try {
           const imageResponse = await fetch(imageApiUrl);
@@ -180,7 +180,7 @@ export const ProductProvider = ({ children }) => {
       // This endpoint needs to exist and handle pagination for comments
       // Assuming it's part of the product endpoint for now.
       // A more robust solution might have /api/comments?productId=... or similar
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/products/${entityId}?commentsPage=${page}&commentsLimit=5`);
+      const response = await fetch(`/api/products/${entityId}?commentsPage=${page}&commentsLimit=5`);
       if (!response.ok) {
         const errData = await response.json();
         throw new Error(errData.error || 'Failed to fetch comments.');
@@ -270,7 +270,7 @@ export const ProductProvider = ({ children }) => {
     }
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/comments`, {
+      const response = await fetch(`/api/comments`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -303,7 +303,7 @@ export const ProductProvider = ({ children }) => {
     }));
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/comments/${commentId}/replies`);
+      const response = await fetch(`/api/comments/${commentId}/replies`);
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.error || `Failed to fetch replies: ${response.status}`);
@@ -344,13 +344,13 @@ export const ProductProvider = ({ children }) => {
     return await response.json();
   }, [token]);
   
-  const reportProduct = (productId, reason) => genericReport(`${import.meta.env.VITE_API_URL}/api/products/${productId}/report`, productId, reason);
-  const reportComment = (commentId, reason) => genericReport(`${import.meta.env.VITE_API_URL}/api/comments/${commentId}/report`, commentId, reason);
-  const reportListing = (listingId, reason) => genericReport(`${import.meta.env.VITE_API_URL}/api/listings/${listingId}/report`, listingId, reason);
+  const reportProduct = (productId, reason) => genericReport(`/api/products/${productId}/report`, productId, reason);
+  const reportComment = (commentId, reason) => genericReport(`/api/comments/${commentId}/report`, commentId, reason);
+  const reportListing = (listingId, reason) => genericReport(`/api/listings/${listingId}/report`, listingId, reason);
   
   const reportImage = useCallback(async (imageId, reason) => {
     if (!token) throw new Error("Authentication required to report images.");
-    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/images/${imageId}/report`, {
+    const response = await fetch(`/api/images/${imageId}/report`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
         body: JSON.stringify({ reason }),
@@ -363,7 +363,7 @@ export const ProductProvider = ({ children }) => {
 
   const voteComment = useCallback(async (commentId) => {
     if (!token) throw new Error("Authentication required to vote.");
-    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/comments/${commentId}/vote`, {
+    const response = await fetch(`/api/comments/${commentId}/vote`, {
         method: 'PUT',
         headers: { 'Authorization': `Bearer ${token}` }
     });
@@ -380,7 +380,7 @@ export const ProductProvider = ({ children }) => {
 
   const downvoteComment = useCallback(async (commentId) => {
     if (!token) throw new Error("Authentication required to vote.");
-    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/comments/${commentId}/downvote`, {
+    const response = await fetch(`/api/comments/${commentId}/downvote`, {
         method: 'PUT',
         headers: { 'Authorization': `Bearer ${token}` }
     });
@@ -397,7 +397,7 @@ export const ProductProvider = ({ children }) => {
 
   const deleteUserComment = useCallback(async (commentId) => {
     if (!token) throw new Error("Authentication required to delete comment.");
-    await fetch(`${import.meta.env.VITE_API_URL}/api/comments/${commentId}/by-user`, {
+    await fetch(`/api/comments/${commentId}/by-user`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
     });

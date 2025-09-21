@@ -1538,6 +1538,18 @@ body {
   }
 }
 
+/* --- Force robust mobile stacking for part page layout --- */
+@media (max-width: 900px) {
+  .content-and-price {
+    display: block !important; /* Ensure vertical stacking regardless of other rules */
+  }
+  .price-section-wrapper {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    margin-top: 1rem;
+  }
+}
+
 /* Add these styles at the end of the file */
 
 .listing-details-modal {
