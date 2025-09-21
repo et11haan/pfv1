@@ -124,6 +124,21 @@ export const ProductProvider = ({ children }) => {
         totalPages: data.listings.totalPages
       });
 
+      // --- NEW: hydrate initial comments from product endpoint ---
+      if (data.comments) {
+        setComments(data.comments);
+        setCommentsPage(data.comments.page || 1);
+        setTotalCommentsPages(data.comments.totalPages || 1);
+        setTotalComments(data.comments.total || 0);
+        setLastFetchedEntityId(data.product?._id || null);
+      } else {
+        setComments(null);
+        setCommentsPage(1);
+        setTotalCommentsPages(1);
+        setTotalComments(0);
+        setLastFetchedEntityId(null);
+      }
+
 
       if (data.product?._id) {
         const imageApiUrl = `/api/parts/${data.product._id}/images`;
