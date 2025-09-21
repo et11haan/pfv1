@@ -162,7 +162,12 @@ export const ProductProvider = ({ children }) => {
     }
 
     console.log(`[ProductContext] Fetching comments for entity: ${entityId}, page: ${page}`);
-    setIsLoadingComments(true);
+    // Distinguish between initial load and load-more for better UI signaling
+    if (page > 1) {
+      setIsLoadingMoreComments(true);
+    } else {
+      setIsLoadingComments(true);
+    }
     setError(null);
 
     // If it's a new entity, reset comments state
@@ -212,17 +217,21 @@ export const ProductProvider = ({ children }) => {
       setError(err.message);
       console.error(err);
     } finally {
-      setIsLoadingComments(false);
+      if (page > 1) {
+        setIsLoadingMoreComments(false);
+      } else {
+        setIsLoadingComments(false);
+      }
     }
   }, [isLoadingComments]);
 
   const fetchMoreComments = useCallback(() => {
-    if (isLoadingComments || !product?._id || commentsPage >= totalCommentsPages) {
+    if (isLoadingComments || isLoadingMoreComments || !product?._id || commentsPage >= totalCommentsPages) {
       return;
     }
     // Use lastFetchedEntityId to ensure we're fetching for the correct entity
     fetchCommentsForProduct(lastFetchedEntityId, commentsPage + 1);
-  }, [isLoadingComments, product?._id, commentsPage, totalCommentsPages, fetchCommentsForProduct, lastFetchedEntityId]);
+  }, [isLoadingComments, isLoadingMoreComments, product?._id, commentsPage, totalCommentsPages, fetchCommentsForProduct, lastFetchedEntityId]);
 
   const addReplyToState = (comments, newComment) => {
     console.log(`[addReplyToState] Trying to add reply ${newComment._id} to parent ${newComment.parentId}. Input comments:`, comments);
@@ -431,6 +440,7 @@ export const ProductProvider = ({ children }) => {
     priceStats,
     fetchProductData,
     fetchCommentsForProduct,
+    fetchMoreComments,
     fetchReplies,
     addComment,
     reportProduct,
